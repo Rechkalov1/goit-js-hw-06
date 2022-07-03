@@ -13,9 +13,25 @@ const ingredients = [
   "Herbs",
   "Condiments",
 ];
-let ulEl = document.querySelector("ul");
-const markup = ingredients
-  .map((ingredients) => `<li class="item">${ingredients}</li>`)
-  .join("");
-console.log(markup);
-ulEl.innerHTML = markup;
+const listIngredients = document.querySelector("#ingredients");
+
+// 1 вариант
+
+// let ulEl = document.querySelector("ul");
+// const markup = ingredients
+//   .map((ingredients) => `<li class="item">${ingredients}</li>`)
+//   .join("");
+// console.log(markup);
+// ulEl.innerHTML = markup;
+
+// 2 вариант
+
+const createItems = ingredients.map((ingredient) => {
+  const itemEl = document.createElement("li");
+  itemEl.classList.add("item");
+  itemEl.textContent = `${ingredient}`;
+  return itemEl;
+});
+listIngredients.append(...createItems);
+
+//
