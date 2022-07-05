@@ -10,11 +10,12 @@ const spanEl = document.querySelector(".color");
 const btnEl = document.querySelector(".change-color");
 const bodyEl = document.querySelector("body");
 
-bodyEl.addEventListener("click", onChangeColor);
+btnEl.addEventListener("click", onChangeColor);
 
 function onChangeColor(event) {
-  bodyEl.style.backgroundColor = getRandomHexColor();
-  spanEl.textContent = rgb2hex(bodyEl.style.backgroundColor);
+  let color = getRandomHexColor();
+  document.body.setAttribute("style", `background-color: ${color}`);
+  spanEl.textContent = color;
 }
 
 function getRandomHexColor() {

@@ -20,12 +20,17 @@ const images = [
   },
 ];
 const gallery = document.querySelector(".gallery");
-const imgGal = images.map((img) => {
-  const imgEl = document.createElement("img");
-  const liEl = document.createElement("li");
-  imgEl.src = img.url;
-  imgEl.alt = img.alt;
-  liEl.append(imgEl);
-  return liEl;
-});
-gallery.append(...imgGal);
+const createImg = images.map(
+  (image) => `<img src ="${image.url}"alt="${image.alt}" </img>`
+);
+gallery.insertAdjacentHTML("beforeend", createImg);
+console.log(createImg);
+// const imgGal = images.map((img) => {
+//   const imgEl = document.createElement("img");
+//   const liEl = document.createElement("li");
+//   imgEl.src = img.url;
+//   imgEl.alt = img.alt;
+//   liEl.append(imgEl);
+//   return liEl;
+// });
+// gallery.append(...imgGal);
